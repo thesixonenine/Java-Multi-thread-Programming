@@ -1,6 +1,7 @@
-package com.simple.java.multithread.base02;
+package io.github.thesixonenine.multithread.base02;
 
 /**
+ * 多个线程实例运行同一个线程对象
  * @author simple
  * @version 1.0
  * @date 2019-02-13 10:52
@@ -27,5 +28,13 @@ public class TestMultiThreadUnSafe implements Runnable {
         thread3.start();
         thread4.start();
         thread5.start();
+
+        // 输出:
+
+        // 由 Thread-0 操作, 操作结果为: 3
+        // 由 Thread-2 操作, 操作结果为: 2
+        // 由 Thread-1 操作, 操作结果为: 3
+        // 由 Thread-3 操作, 操作结果为: 1
+        // 由 Thread-4 操作, 操作结果为: 0
     }
 }

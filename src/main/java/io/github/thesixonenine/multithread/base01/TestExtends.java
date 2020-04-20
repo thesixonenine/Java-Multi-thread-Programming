@@ -1,4 +1,4 @@
-package com.simple.java.multithread.base01;
+package io.github.thesixonenine.multithread.base01;
 
 /**
  * @author simple

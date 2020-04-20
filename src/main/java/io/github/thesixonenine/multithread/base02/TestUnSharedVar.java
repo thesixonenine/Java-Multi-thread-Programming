@@ -1,4 +1,4 @@
-package com.simple.java.multithread.base02;
+package io.github.thesixonenine.multithread.base02;
 
 import java.util.concurrent.TimeUnit;
 
@@ -11,9 +11,13 @@ import java.util.concurrent.TimeUnit;
 public class TestUnSharedVar {
     private static boolean flag = true;
 
+    public TestUnSharedVar() {
+    }
+
     private static Thread getThread() {
         return new Thread(() -> {
             while (flag) {
+                // 这里运行太快, 没有时间去共享内存(主存)中取最新的flag值
             }
             System.out.println(Thread.currentThread().getName() + " 已退出");
         }, "RunningThread");
@@ -22,7 +26,7 @@ public class TestUnSharedVar {
     public static void main(String[] args) throws InterruptedException {
         Thread thread = getThread();
         thread.start();
-        TimeUnit.SECONDS.sleep(3);
+        TimeUnit.SECONDS.sleep(3L);
         flag = false;
     }
 }
